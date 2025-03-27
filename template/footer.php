@@ -1,5 +1,3 @@
-<div class="footer-divide"></div>
-
 <footer class="footer py-5">
 	<div class="container">
 		<div class="row gy-4">
