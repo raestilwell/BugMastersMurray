@@ -1,0 +1,752 @@
+/*
+Theme Name: Bug Masters Murray Theme
+Author: Rae Stilwell (Modernized by Claude)
+Author URI: http://raestilwell.com
+Description: A Custom Theme for Bug Masters, LLC of Murray KY. 
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bugmasters
+*/
+
+/**
+ * Table of Contents:
+ * 1. Global Settings
+ * 2. Primary Layout
+ * 3. Secondary Layout
+ * 4. Tertiary Layout
+ * 5. Text Styles
+ * 6. Components
+ * 7. Utilities
+ * 8. Responsive Styles
+**/
+
+/* === 1. GLOBAL SETTINGS === */
+:root {
+  --primary: #9b0000;
+  --primary-transparent: rgba(155, 0, 0, 0.9);
+  --secondary: #ffea00;
+  --secondary-dark: #dfcd00;
+  --tertiary: #5f5d42;
+  --dark: #000;
+  --light: #fff;
+  --teal: #1c6369;
+  --transition-speed: 0.3s;
+  --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* === 2. PRIMARY LAYOUT === */
+html {
+  min-height: 100%;
+  background: var(--teal) url("../images/bg2.jpg") repeat-x fixed bottom;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* === 3. SECONDARY LAYOUT === */
+/* Header */
+header {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  border-radius: 6rem 6rem 0 0;
+  background-color: var(--secondary);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contact icon container - ensures consistent width */
+.contact-icon {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 32px; /* Fixed width to ensure alignment */
+  padding-top: 4px; /* Slight offset for better alignment with text */
+}
+
+/* Contact text container */
+.contact-text {
+  flex: 1;
+  min-width: 160px; /* Ensures enough space for the content */
+}
+
+/* Contact title - ensures both headers align */
+.contact-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding-bottom: 2px;
+  margin-bottom: 6px !important;
+}
+
+.header-info {
+  color: var(--tertiary);
+  transition: all ease var(--transition-speed);
+  padding: 0 5px;
+}
+
+.header-info p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.header-info i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo positioning improvements */
+.logo-head {
+  max-height: 100px;
+  transition: all ease var(--transition-speed);
+  display: block;
+  margin: 0 auto;
+}
+/* Desktop logo positioning */
+@media (min-width: 992px) {
+  .text-lg-start .logo-head {
+    margin-left: 2rem; /* Add some spacing from the left edge on large screens */
+  }
+}
+
+.header-container {
+  height: 200px;
+  background-image: url("../images/truck2.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-red-banner {
+  background: var(--primary-transparent);
+  color: var(--light);
+  padding: 1rem 2rem;
+  display: inline-block;
+  margin: 0;
+  box-shadow: var(--shadow);
+}
+
+/* Navigation */
+.nav-bg-custom {
+  background-color: var(--light) !important;
+  box-shadow: var(--shadow);
+}
+
+.nav-bg-custom .nav-link {
+  transition: all ease var(--transition-speed);
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+}
+
+.nav-bg-custom .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.nav-bg-custom .nav-link i {
+  opacity: 0.8;
+}
+
+/* Footer */
+/* Footer base */
+.footer {
+  background-color: var(--secondary);
+  padding: 3rem 0 2rem;
+  box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Footer divider */
+.footer-divide {
+  background-color: var(--tertiary);
+  width: 100%;
+  height: 5px;
+  margin-bottom: -1px;
+}
+
+/* Footer headers */
+.footer h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--dark);
+  position: relative;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+/* Map container */
+.map-container {
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* Contact info */
+.contact-info {
+  margin-top: 1.5rem;
+}
+
+.contact-info i {
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* Footer navigation */
+.nav-links-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav-link {
+  color: var(--tertiary);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.25rem;
+  border-left: 4px solid transparent;
+  transition: all ease var(--transition-speed);
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav-link:hover {
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-left-color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* Social links */
+.social-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--tertiary) !important;
+  border-radius: 50%;
+  transition: all ease var(--transition-speed);
+  text-decoration: none !important;
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  color: var(--light) !important;
+  transform: translateY(-3px);
+  text-decoration: none !important;
+}
+
+.social-link:active, 
+.social-link:focus {
+  text-decoration: none !important;
+  outline: none;
+}
+
+.social-section span {
+  color: var(--tertiary);
+  font-size: 0.95rem;
+}
+
+/* Copyright bar */
+.copyright-bar {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyright-bar a {
+  color: rgba(255, 255, 255, 0.9);
+  transition: color ease var(--transition-speed);
+}
+
+.copyright-bar a:hover {
+  color: var(--light);
+}
+
+/* === 4. TERTIARY LAYOUT === */
+.home-main {
+  background-color: var(--light);
+  margin-left: 0px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.home-main h1 {
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Page */
+.contact-main a {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.contact-main a:before {
+  position: absolute;
+  margin: 0 auto;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  content: '';
+  opacity: .3;
+  transform: scaleX(0.9);
+  transition: opacity var(--transition-speed), transform var(--transition-speed);
+}
+
+.contact-main a:hover:before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Services Page */
+.services-cont h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.services-cont .card {
+  transition: transform var(--transition-speed);
+}
+
+.services-cont .card:hover {
+  transform: translateY(-5px);
+}
+
+.services-cont .card-title i {
+  opacity: 0.8;
+}
+
+/* Filter button styling */
+.filter-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-buttons-container .btn {
+  margin-bottom: 0.5rem;
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+/* Pest Library */
+.lib-thumb {
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow);
+}
+
+.title-slide {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 185px;
+  transition: var(--transition-speed);
+  background: var(--primary-transparent);
+  color: var(--light);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-thumb:hover .title-slide {
+  top: 0;
+}
+
+.bugs-container .col {
+  cursor: pointer;
+  padding: 0;
+  margin: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 3px var(--primary) solid;
+  transition: all ease var(--transition-speed);
+}
+
+.bugs-container .col:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.bugs-container .col img {
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+}
+
+.no-border {
+  border: 1px solid transparent !important;
+  border-top: 3px solid transparent !important;
+}
+
+.lib-info-col {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 3px var(--primary) solid;
+  margin-left: 10px;
+  padding-top: 20px;
+}
+
+.library-big-img {
+  background-image: url("../images/library/mosquito.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* === 5. TEXT STYLES === */
+.red-text {
+  color: var(--primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* === 6. COMPONENTS === */
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #7a0000;
+  border-color: #7a0000;
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-danger {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-danger:hover {
+  background-color: #7a0000;
+  border-color: #7a0000;
+}
+
+.btn-outline-danger {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Cards */
+.card {
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Swiper Slider */
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-top: -16px;
+  border-radius: 0 0 0.25rem 0.25rem;
+  overflow: hidden;
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary);
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary);
+}
+
+.sl-white-banner {
+  float: left;
+  position: relative;
+  left: 80px;
+  top: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  max-width: 70%;
+  box-shadow: var(--shadow);
+}
+
+.sl-red-banner {
+  float: left;
+  clear: left;
+  background: var(--primary-transparent);
+  color: var(--light);
+  position: relative;
+  left: 80px;
+  top: 20px;
+  padding: 10px;
+  max-width: 70%;
+  box-shadow: var(--shadow);
+}
+
+.sl-one {
+  background: url("../images/truck.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.sl-two {
+  background: url("../images/hole-banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.sl-three {
+  background: url("../images/termites-banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-btn {
+  background-color: var(--secondary);
+  color: var(--dark);
+  float: left;
+  clear: left;
+  position: relative;
+  left: 80px;
+  top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all ease var(--transition-speed);
+  border: none;
+}
+
+.banner-btn:hover {
+  background-color: var(--secondary-dark);
+}
+
+/* === 7. UTILITIES === */
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+/* === 8. RESPONSIVE STYLES === */
+@media (min-width: 992px) {
+  .logo-container {
+    position: relative;
+  }
+  
+  .logo-head {
+    position: relative;
+    left: -80px; /* This creates the leftward offset */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 991.98px) {
+  header {
+    margin-top: 1rem;
+    border-radius: 3rem 3rem 0 0;
+  }
+  
+  .swiper {
+    height: 250px;
+  }
+  
+  .d-lg-none {
+    display: block !important;
+  }
+  
+  .d-none.d-lg-block {
+    display: none !important;
+  }
+  
+  /* Medium screens logo size */
+  .logo-head {
+    max-height: 90px;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media (max-width: 767.98px) {
+  header {
+    text-align: center;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  
+  .swiper {
+    height: 200px;
+  }
+  
+  .logo-head {
+    margin: 0 auto;
+    max-width: 200px;
+    max-height: 80px;
+    display: block;
+  }
+  
+  .sl-red-banner, 
+  .sl-white-banner, 
+  .banner-btn {
+    font-size: 0.9rem;
+    left: 20px;
+    max-width: 80%;
+  }
+  
+  .title-slide p {
+    font-size: 0.8rem;
+  }
+  
+  .footer {
+      padding: 2rem 0 1rem;
+    }
+    
+    .footer h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .footer h3:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+  
+  .d-md-none {
+    display: block !important;
+  }
+  
+  .d-none.d-md-block {
+    display: none !important;
+  }
+}
+
+/* Extra small devices (portrait phones) */
+@media (max-width: 575.98px) {
+  .filter-buttons-container {
+    gap: 0.25rem;
+  }
+  
+  .filter-buttons-container .btn {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+    flex: 1 0 calc(50% - 0.5rem); /* Two buttons per row on very small screens */
+    max-width: calc(50% - 0.5rem);
+  }
+  
+  .swiper {
+    height: 180px;
+  }
+  
+  .sl-red-banner, 
+  .sl-white-banner, 
+  .banner-btn {
+    font-size: 0.8rem;
+    left: 10px;
+    padding: 8px;
+    max-width: 90%;
+  }
+  
+  .banner-btn {
+    white-space: normal;
+    line-height: 1.2;
+  }
+  
+  .header-container {
+    height: 150px;
+  }
+  
+  .home-main {
+    padding: 1.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+}
