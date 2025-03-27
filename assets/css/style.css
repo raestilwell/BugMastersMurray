@@ -3,7 +3,7 @@ Theme Name: Bug Masters Murray Theme
 Author: Rae Stilwell (Modernized by Claude)
 Author URI: http://raestilwell.com
 Description: A Custom Theme for Bug Masters, LLC of Murray KY. 
-Version: 2.0
+Version: 2.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: bugmasters
@@ -12,13 +12,11 @@ Text Domain: bugmasters
 /**
  * Table of Contents:
  * 1. Global Settings
- * 2. Primary Layout
- * 3. Secondary Layout
- * 4. Tertiary Layout
- * 5. Text Styles
- * 6. Components
- * 7. Utilities
- * 8. Responsive Styles
+ * 2. Layout (Primary, Secondary, Tertiary)
+ * 3. Text Styles
+ * 4. Components
+ * 5. Utilities
+ * 6. Responsive Styles
 **/
 
 /* === 1. GLOBAL SETTINGS === */
@@ -36,7 +34,8 @@ Text Domain: bugmasters
   --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* === 2. PRIMARY LAYOUT === */
+/* === 2. LAYOUT === */
+/* Primary Layout */
 html {
   min-height: 100%;
   background: var(--teal) url("../images/bg2.jpg") repeat-x fixed bottom;
@@ -50,7 +49,6 @@ body {
   color: #333;
 }
 
-/* === 3. SECONDARY LAYOUT === */
 /* Header */
 header {
   margin-top: 2rem;
@@ -64,22 +62,22 @@ header {
   justify-content: center;
 }
 
-/* Contact icon container - ensures consistent width */
+/* Contact icon container */
 .contact-icon {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 32px; /* Fixed width to ensure alignment */
-  padding-top: 4px; /* Slight offset for better alignment with text */
+  width: 32px;
+  padding-top: 4px;
 }
 
 /* Contact text container */
 .contact-text {
   flex: 1;
-  min-width: 160px; /* Ensures enough space for the content */
+  min-width: 160px;
 }
 
-/* Contact title - ensures both headers align */
+/* Contact title */
 .contact-title {
   font-size: 0.95rem;
   letter-spacing: 0.5px;
@@ -99,24 +97,12 @@ header {
   margin-bottom: 0.25rem;
 }
 
-.header-info i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Logo positioning improvements */
+/* Logo positioning */
 .logo-head {
   max-height: 100px;
   transition: all ease var(--transition-speed);
   display: block;
   margin: 0 auto;
-}
-/* Desktop logo positioning */
-@media (min-width: 992px) {
-  .text-lg-start .logo-head {
-    margin-left: 2rem; /* Add some spacing from the left edge on large screens */
-  }
 }
 
 .header-container {
@@ -156,19 +142,26 @@ header {
   color: var(--primary) !important;
 }
 
-.nav-bg-custom .nav-link i {
-  opacity: 0.8;
+/* Main Content Areas */
+.home-main {
+  background-color: var(--light);
+  margin-left: 0px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.home-main h1 {
+  margin-bottom: 1.5rem;
 }
 
 /* Footer */
-/* Footer base */
 .footer {
   background-color: var(--secondary);
   padding: 3rem 0 2rem;
   box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-/* Footer divider */
 .footer-divide {
   background-color: var(--tertiary);
   width: 100%;
@@ -176,7 +169,6 @@ header {
   margin-bottom: -1px;
 }
 
-/* Footer headers */
 .footer h3 {
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
@@ -269,13 +261,6 @@ header {
   background-color: var(--primary);
   color: var(--light) !important;
   transform: translateY(-3px);
-  text-decoration: none !important;
-}
-
-.social-link:active, 
-.social-link:focus {
-  text-decoration: none !important;
-  outline: none;
 }
 
 .social-section span {
@@ -298,19 +283,7 @@ header {
   color: var(--light);
 }
 
-/* === 4. TERTIARY LAYOUT === */
-.home-main {
-  background-color: var(--light);
-  margin-left: 0px;
-  width: 100%;
-  padding: 2rem 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.home-main h1 {
-  margin-bottom: 1.5rem;
-}
-
+/* === 3. PAGE-SPECIFIC STYLES === */
 /* Contact Page */
 .contact-main a {
   color: var(--primary);
@@ -350,10 +323,6 @@ header {
 
 .services-cont .card:hover {
   transform: translateY(-5px);
-}
-
-.services-cont .card-title i {
-  opacity: 0.8;
 }
 
 /* Filter button styling */
@@ -398,49 +367,7 @@ header {
   top: 0;
 }
 
-.bugs-container .col {
-  cursor: pointer;
-  padding: 0;
-  margin: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px var(--primary) solid;
-  transition: all ease var(--transition-speed);
-}
-
-.bugs-container .col:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.bugs-container .col img {
-  vertical-align: bottom;
-  height: 100%;
-  width: 100%;
-}
-
-.no-border {
-  border: 1px solid transparent !important;
-  border-top: 3px solid transparent !important;
-}
-
-.lib-info-col {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px var(--primary) solid;
-  margin-left: 10px;
-  padding-top: 20px;
-}
-
-.library-big-img {
-  background-image: url("../images/library/mosquito.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-  box-shadow: var(--shadow);
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-}
-
-/* === 5. TEXT STYLES === */
+/* === 4. TEXT STYLES === */
 .red-text {
   color: var(--primary);
 }
@@ -451,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-/* === 6. COMPONENTS === */
+/* === 5. COMPONENTS === */
 /* Buttons */
 .btn-primary {
   background-color: var(--primary);
@@ -469,26 +396,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline-primary:hover {
-  background-color: var(--primary);
-  border-color: var(--primary);
-}
-
-.btn-danger {
-  background-color: var(--primary);
-  border-color: var(--primary);
-}
-
-.btn-danger:hover {
-  background-color: #7a0000;
-  border-color: #7a0000;
-}
-
-.btn-outline-danger {
-  color: var(--primary);
-  border-color: var(--primary);
-}
-
-.btn-outline-danger:hover {
   background-color: var(--primary);
   border-color: var(--primary);
 }
@@ -586,7 +493,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--secondary-dark);
 }
 
-/* === 7. UTILITIES === */
+/* === 6. UTILITIES === */
 .text-primary {
   color: var(--primary) !important;
 }
@@ -599,7 +506,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--primary) !important;
 }
 
-/* === 8. RESPONSIVE STYLES === */
+/* === 7. RESPONSIVE STYLES === */
 @media (min-width: 992px) {
   .logo-container {
     position: relative;
@@ -608,6 +515,10 @@ h1, h2, h3, h4, h5, h6 {
   .logo-head {
     position: relative;
     left: -80px; /* This creates the leftward offset */
+  }
+  
+  .text-lg-start .logo-head {
+    margin-left: 2rem;
   }
 }
 
@@ -620,14 +531,6 @@ h1, h2, h3, h4, h5, h6 {
   
   .swiper {
     height: 250px;
-  }
-  
-  .d-lg-none {
-    display: block !important;
-  }
-  
-  .d-none.d-lg-block {
-    display: none !important;
   }
   
   /* Medium screens logo size */
@@ -668,34 +571,26 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .footer {
-      padding: 2rem 0 1rem;
-    }
-    
-    .footer h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    
-    .footer h3:after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .contact-info {
-      margin-bottom: 2rem;
-    }
-    
-    .social-links {
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-  
-  .d-md-none {
-    display: block !important;
+    padding: 2rem 0 1rem;
   }
-  
-  .d-none.d-md-block {
-    display: none !important;
+    
+  .footer h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+    
+  .footer h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+    
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+    
+  .social-links {
+    justify-content: center;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -708,7 +603,7 @@ h1, h2, h3, h4, h5, h6 {
   .filter-buttons-container .btn {
     font-size: 0.875rem;
     padding: 0.375rem 0.75rem;
-    flex: 1 0 calc(50% - 0.5rem); /* Two buttons per row on very small screens */
+    flex: 1 0 calc(50% - 0.5rem);
     max-width: calc(50% - 0.5rem);
   }
   
